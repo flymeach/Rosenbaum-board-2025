@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rosenbaum Board Member 2025 Ballot</title>
+    <script>
+        function disableSelectedOptions(event) {
+            const form = document.forms[0];
+            const selections = {};
+
+            // Track selected candidates
+            ["board_position_1", "board_position_2", "board_position_3"].forEach(position => {
+                const checked = form[position].value;
+                if (checked) {
+                    selections[checked] = true;
+                }
+            });
+
+            // Disable selected candidates in other sections
+            ["board_position_1", "board_position_2", "board_position_3"].forEach(position => {
+                const radios = form[position];
+                for (let i = 0; i < radios.length; i++) {
+                    radios[i].disabled = false; // Reset all first
+                }
+                for (let i = 0; i < radios.length; i++) {
+                    if (selections[radios[i].value] && !radios[i].checked) {
+                        radios[i].disabled = true;
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <h2>Rosenbaum Board Member 2025 Ballot</h2>
+    <p><em>Instructions: Vote for each of the three positions.</em></p>
+    <form action="mailto:jeff.meachen@gmail.com,george_hopkins@att.net" method="post" enctype="text/plain" oninput="disableSelectedOptions(event)">
+        <p><strong>Your Name:</strong></p>
+        <input type="text" name="voter_name" required><br><br>
+
+        <p><strong>Board Position 1:</strong></p>
+        <input type="radio" name="board_position_1" value="Gary Reich"> Gary Reich<br>
+        <input type="radio" name="board_position_1" value="Mike Kuhn"> Mike Kuhn<br>
+        <input type="radio" name="board_position_1" value="Jacob Kuhn"> Jacob Kuhn<br>
+        <input type="radio" name="board_position_1" value="Gordy Slattery"> Gordy Slattery<br>
+        <input type="radio" name="board_position_1" value="Tony Hladilek"> Tony Hladilek<br>
+        <input type="radio" name="board_position_1" value="Lucas Romanowski"> Lucas Romanowski<br>
+        <input type="radio" name="board_position_1" value="Joe Schaefer"> Joe Schaefer<br>
+
+        <p><strong>Board Position 2:</strong></p>
+        <input type="radio" name="board_position_2" value="Gary Reich"> Gary Reich<br>
+        <input type="radio" name="board_position_2" value="Mike Kuhn"> Mike Kuhn<br>
+        <input type="radio" name="board_position_2" value="Jacob Kuhn"> Jacob Kuhn<br>
+        <input type="radio" name="board_position_2" value="Gordy Slattery"> Gordy Slattery<br>
+        <input type="radio" name="board_position_2" value="Tony Hladilek"> Tony Hladilek<br>
+        <input type="radio" name="board_position_2" value="Lucas Romanowski"> Lucas Romanowski<br>
+        <input type="radio" name="board_position_2" value="Joe Schaefer"> Joe Schaefer<br>
+
+        <p><strong>Board Position 3:</strong></p>
+        <input type="radio" name="board_position_3" value="Gary Reich"> Gary Reich<br>
+        <input type="radio" name="board_position_3" value="Mike Kuhn"> Mike Kuhn<br>
+        <input type="radio" name="board_position_3" value="Jacob Kuhn"> Jacob Kuhn<br>
+        <input type="radio" name="board_position_3" value="Gordy Slattery"> Gordy Slattery<br>
+        <input type="radio" name="board_position_3" value="Tony Hladilek"> Tony Hladilek<br>
+        <input type="radio" name="board_position_3" value="Lucas Romanowski"> Lucas Romanowski<br>
+        <input type="radio" name="board_position_3" value="Joe Schaefer"> Joe Schaefer<br>
+
+        <br>
+        <input type="submit" value="Submit Vote">
+    </form>
+</body>
+</html>
